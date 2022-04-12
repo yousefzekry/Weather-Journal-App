@@ -1,83 +1,199 @@
+:root {
+  --color-primary: #f23557;
+  --color-secondary: #e9e8f9;
+  --color-accent: rgb(55, 53, 41);
+  --color-dark: #000;
+  --color-light: #fff;
+}
+
+*, 
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
 body {
-  background: #fffff8;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;  
+}
+
+.wrapper__app {
+  background: url(./img/chris-barbalis-Y1WOu4MtiSE-unsplash.jpg) no-repeat center center/ cover;
+  height: 100vh;
+  padding: 8rem;
+  width: 100vw;
 }
 
 #app {
-  display: grid;
-  grid-auto-rows: minmax(150px, auto);
-  /* grid-template-columns:  */
-  height: 100vh;
-  background: #f23557;
-  color: #f0d43a;
-  justify-content: center;
-  grid-gap: 1em;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-  align-content: center;
+  align-items: stretch;
+  background: transparent;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  text-align: center;
+  width: 50vw;
 }
 
-.holder {
-}
-
-.entry {
-  background: rgba(59, 74, 107, 0.4);
-}
-
-#entryHolder {
-}
-
-#date {
-}
-
-#temp {
-}
-
-#content {
-}
+/* App Heading */
 
 .headline {
-}
-.title {
+  background-color: var(--color-accent);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  font-size: 45px;
+  text-underline-position: below;
 }
 
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label {
+.headline__heading {
+  color: var(--color-dark);
+  font-family: 'Raleway', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 951px) {
+  .headline__heading {
+    font-size: 3.5rem;
+  }
+}
+
+/* Form */
+
+.app__form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  min-height: 50%;
+  width: 70%;
+}
+
+.app__form div label {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.6rem;
+  left: 2rem;
+  position: absolute;
+  top: 2rem;
+  transition: 0.5s;
+}
+
+#app input:focus ~ label,
+#app textarea:focus ~ label,
+#app input:valid ~ label,
+#app textarea:valid ~ label {
+  font-size: 1.3rem;
+  transform: translateY(-1rem);
+}
+
+#app input:focus,
+#app textarea:focus {
+  border: 0.2rem solid var(--color-accent);
+}
+
+/* ZIP & feelings input */
+
+#zip,
+#feelings {
+  background: var(--color-secondary);
+  border: 0.2rem solid var(--color-dark);
+  border-radius: 1rem;
+  color: var(--color-accent);
   display: block;
-  font-size: 27px;
+  font-size: 2rem;
+  height: 6rem;
+  text-align: center;
+  width: 100%;
 }
 
-input {
-  display: block;
-  height: 60px;
-  width: 320px;
-  background: #22b2da;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-  border: none;
+.zip {
+  position: relative;
+  width: 100%;
+  font-size: 35px;
 }
 
-button {
-  width: 400px;
-  height: 100px;
-  background: #3b4a6b;
-  color: #f0d43a;
-  font-size: 26px;
-  font-family: "Oswald", sans-serif;
-  border: none;
-  box-shadow: 2px 4px 5px #444;
-}
-h1 {
-  font-size: 36px;
+#zip {
+  padding: 1.5rem 1rem;
+  text-transform: uppercase;
+  width: 100%;
 }
 
-textarea {
-  background: #22b2da;
-  color: #f0d43a;
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
+#zip:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-accent);
+  transition: all 5s ease-in-out 0s;
 }
+  
+/* Feelings field */
+
+.feel {
+  position: relative;
+  width: 100%;
+  font-size: 35px;
+}
+
+#feelings {
+  overflow: hidden;
+  padding: 3rem;
+  resize: none;
+}
+
+/* Button Generate */
+
+#generate {
+  background: var(--color-accent);
+  border: 0.2rem solid var(--color-dark);
+  border-radius: 2rem;
+  box-shadow: 1rem 1rem 2rem #444;
+  color: var(--color-dark);
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 8rem;
+  letter-spacing: 0.2rem;
+  margin-top: 3rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  transition: all 0.1s;
+  width: 50%;
+}
+
+@media only screen and (min-width: 701px) {
+  #generate {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 951px) {
+  #generate {
+    font-size: 2.5rem;
+  }
+}
+
+#generate:active {
+  transform: translateY(0);
+}
+
+#generate:hover {
+  transform: translateY(-0.2rem);
+}
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
@@ -85,21 +201,82 @@ textarea:focus,
 button:focus {
   outline: none;
 }
-/* Style for Placeholder Text*/
-::placeholder {
-  /* Firefox, Chrome, Opera */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+
+/* Most recent entry styling */
+
+.entry {
+  background: rgba(59, 74, 107, 0.4);
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  height: 13rem;
+  text-shadow: 0 0.3rem 1rem rgba(0,0,0,0.7);
 }
 
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+.entry__title {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0.3rem 0.3rem rgba(0,0,0,0.9);
+  margin: 2rem 0 1rem 0;
+  text-transform: uppercase;
 }
 
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #f0d43a;
-  font-family: "Oswald", sans-serif;
+#entryHolder {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+@media only screen and (min-width: 1051px) {
+  #entryHolder {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #entryHolder {
+    justify-content: center;
+  }
+}
+
+.entry__date,
+.entry__temp,
+.entry__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.entry__date {
+  margin-left: 5rem;
+}
+
+.entry__content {
+  justify-content: flex-start;
+  flex: 2;
+}
+
+@media only screen and (min-width: 1200px) {
+  .entry__content {
+    flex: none;
+  }
+}
+
+.entry__icon {
+  color: var(--color-accent);
+  opacity: 0;
+  padding: 0 0 0 1rem;
+}
+
+#date,
+#temp,
+#content,
+#description{
+  padding: 0 4rem 0 2rem;
 }
