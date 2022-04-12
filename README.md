@@ -30,7 +30,7 @@ then you will have to open the folder with visual studio code
 then you will open the terminal and run the following commands
 npm install cors
 npm install body-parser
-npm node server.js   
+npm start  
 
 ##
 Technologies used in this project is 
